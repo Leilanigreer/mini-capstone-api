@@ -7,9 +7,7 @@ Rails.application.routes.draw do
 
   get "/all_products" => "products#all"
 
-  get "/first" => "products#first_product"
-
-  get "/second" => "products#second_product"
+  get "/first/:id" => "products#a_product"
 
 
   # Defines the root path route ("/")
