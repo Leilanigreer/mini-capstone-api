@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   end
   
   def create 
+    if 
     @product = Product.new(
       name: params[:name],
       price: params[:price],
