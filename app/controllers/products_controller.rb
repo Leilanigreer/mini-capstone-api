@@ -13,9 +13,10 @@ class ProductsController < ApplicationController
       description: params[:description],
       in_stock: params[:in_stock]
     )
+    # happy/sad path
     if @product.save
       render template: "products/show"
-    else render json: {errors: @product.error.full_message}
+    else render json: {errors: @product.error.full_message}, status: :unprocessable_entity
     end
   end 
 
