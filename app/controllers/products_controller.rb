@@ -6,7 +6,6 @@ class ProductsController < ApplicationController
   end
   
   def create 
-    if 
     @product = Product.new(
       name: params[:name],
       price: params[:price],
@@ -14,8 +13,10 @@ class ProductsController < ApplicationController
       description: params[:description],
       in_stock: params[:in_stock]
     )
-    @product.save
-    render template: "products/show"
+    if @product.save
+      render template: "products/show"
+    else render json: {errors: @product.error.full_message}
+    end
   end 
 
   def show
